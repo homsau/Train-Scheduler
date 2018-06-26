@@ -45,10 +45,9 @@ $(document).ready(function() {
             nextTrain = moment().add(minutes, "minutes");
             nextTrainFormatted = moment(nextTrain).format("hh:mm");
             
-            console.log(tRemainder);
-            console.log(firstTrainTime);
-            console.log(nextTrainFormatted);
-            console.log(minutes);
+            console.log("first train time: " + firstTrainTime);
+            console.log("next train: " + nextTrainFormatted);
+            console.log("minutes till next: " + minutes);
         
         //nextTrain
         train = $("<tr>");
@@ -85,8 +84,4 @@ $(document).ready(function() {
         $("#train-destination").val("");
         $("#departure-frequency").val("");
     });
-        
-
-    
-    //console.log(moment().format("DD/MM/YY hh:mm A"));
 });
