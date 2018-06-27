@@ -14,8 +14,8 @@ $(document).ready(function() {
     // declare variables
     var database = firebase.database();
     var trainDB = database.ref("/trains");
-    var presentTime = moment();
     var trainInfo = "";
+    var presentTime = moment();
     var difference = "";
     var trainFrequency = "";
     var trainName = "";
@@ -26,7 +26,8 @@ $(document).ready(function() {
     var diffTimeConverted = "";
     var nextTrain = "";
     var nextTrainConverted = "";
-    var remainder = "";
+    var tRemainder = "";
+    var train = "";
 
     // limit the amount of numbers able to be typed in the time area
     $("input#first-train-time").on("keyup", function() {
@@ -84,8 +85,8 @@ $(document).ready(function() {
         trainFrequency = parseInt($("#departure-frequency").val().trim());
         var first2Time = firstTrainTime.substring(0, 2);
         var second2Time = firstTrainTime.substring(2, 4);
-        console.log(first2Time);
-        console.log(second2Time);
+        //console.log(first2Time);
+        //console.log(second2Time);
 
         // make sure a number 0-2359 is added. not 2299 or 2510 but a valid military time
         if (first2Time >= 0 && first2Time <= 23 && second2Time >= 0 && second2Time <= 59) {
