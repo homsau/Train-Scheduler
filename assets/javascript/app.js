@@ -27,32 +27,32 @@ $(document).ready(function() {
     var nextTrain = "";
     var nextTrainConverted = "";
     var tRemainder = "";
-    
+
     trainDB.on("child_added", function(childSnapshot){
         trainInfo = childSnapshot.val();
             trainName = trainInfo.trainName;
             trainDestination = trainInfo.trainDestination;
             firstTrainTime = trainInfo.firstTrainTime;
             trainFrequency = trainInfo.trainFrequency;
-            firstTrainConverted = moment(firstTrainTime, "HH:mm");
+            firstTrainConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
             diffTime = moment().diff(moment(firstTrainConverted), "minutes");
             tRemainder = diffTime % trainFrequency;
             difference = trainFrequency - tRemainder;
             nextTrain = moment().add(difference, "minutes");
             nextTrainConverted = moment(nextTrain).format("HH:mm");
-            
+
             //console.log("first train time: " + firstTrainTime);
             //console.log("next train: " + nextTrainConverted);
             //console.log("minutes till next: " + difference);
         
         //nextTrain
-        var train = $("<tr>");
+        var train = $("<tr>").addClass("train");
         train.append(
-            $("<td>").text(trainName),
-            $("<td>").text(trainDestination),
-            $("<td>").text(trainFrequency),
-            $("<td>").text(nextTrainConverted),
-            $("<td>").text(difference)
+            $("<td>").addClass("trainName").text(trainName),
+            $("<td>").addClass("trainDestination").text(trainDestination),
+            $("<td>").addClass("trainFrequency").text(trainFrequency),
+            $("<td>").addClass("nextTrainConverted").text(nextTrainConverted),
+            $("<td>").addClass("difference").text(difference)
         );
         $("#trains-input").append(train);
     });
@@ -65,13 +65,25 @@ $(document).ready(function() {
         firstTrainTime = $("#first-train-time").val().trim();
         trainFrequency = parseInt($("#departure-frequency").val().trim());
     
-        trainDB.push({
-            trainName,
-            trainDestination,
-            firstTrainTime,
-            trainFrequency
-        });
-
+        if (firstTrainTime < 2400 && firstTrainTime >= 0) {
+            if (trainFrequency > 0) {
+                trainDB.push({
+                    trainName,
+                    trainDestination,
+                    firstTrainTime,
+                    trainFrequency
+                });
+                $("#first-train-time").val("");
+                $("#departure-frequency").val("");
+            } else {
+                $("#departure-frequency").val("").attr("placeholder", "Value must be greater than 0");
+                return;
+            }
+        } else {
+            $("#first-train-time").val("").attr("placeholder", "Enter a value between 0 and 2359");
+            return;
+        }
+        
         $("#train-name").val("");
         $("#train-destination").val("");
         $("#departure-frequency").val("");

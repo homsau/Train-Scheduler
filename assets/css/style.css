@@ -1,9 +1,8 @@
 html {
-    background-image: ;
-    background-color: #9fb9de;
+    background-image: url("../images/thomas-bg.jpg");
+    background-color: #000;
     background-position: center center;
     background-repeat: no-repeat;
-    text-shadow: 0.25px 0.25px #fff;
     height: 100%;
     background-size: cover;
 }
@@ -22,4 +21,45 @@ body {
 }
 .container {
     padding: 0 !important;
+}
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.display-schedule, .train-info {
+    background-color: rgba(255,255,255,0.5) !important;
+    margin: 40px 0 0 !important;
+    border: 2px solid #fff;
+    border-radius: 5px;
+}
+.train-info {
+    font-weight: bold;
+}
+.display-schedule {
+    overflow-x: auto;
+}
+.display-schedule h4, .train-info h4 {
+    background: #fff;
+    margin-bottom: 0;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+.display-schedule table {
+    margin-bottom: 0;
+    padding: 0 20px;
+}
+.display-schedule > div, .train-info > div {
+    padding: 0 !important;
+}
+.train-info form {
+    padding: 20px !important;
+}
+.train-info button {
+    background: #fff;
+    border: none !important;
+    color: #000;
+}
+.train-info button:hover {
+    background: rgba(255,255,255,0.5);
 }
