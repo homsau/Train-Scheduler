@@ -1,7 +1,8 @@
 html {
     background-image: url("../images/thomas-bg.jpg");
     background-color: #000;
-    background-position: center center;
+    background-position: bottom center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     height: 100%;
     background-size: cover;
@@ -10,14 +11,16 @@ body {
     width: 100%;
     max-width: 100%;
     background-color: transparent !important;
-    padding: 20px;
-    margin: 40px auto !important;
-    border-radius: 5px;
+    padding: 0 0 20px;
+    margin: 0 auto 40px auto !important;
 }
 .jumbotron {
     background: transparent !important;
     margin-bottom: 0px !important;
     background-color: rgba(255,255,255,0.5) !important;
+    padding: 2em 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }
 .container {
     padding: 0 !important;
@@ -26,14 +29,20 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+.table td, .table th {
+    padding: 10px 20px !important;
+}
 .display-schedule, .train-info {
-    background-color: rgba(255,255,255,0.5) !important;
     margin: 40px 0 0 !important;
     border: 2px solid #fff;
     border-radius: 5px;
 }
+.display-schedule table {
+    background-color: rgba(255,255,255,0.75) !important;
+}
 .train-info {
     font-weight: bold;
+    background-color: rgba(255,255,255,0.5) !important;
 }
 .display-schedule {
     overflow-x: auto;
@@ -62,4 +71,8 @@ body {
 }
 .train-info button:hover {
     background: rgba(255,255,255,0.5);
+}
+.form-control:focus {
+    border-color: #000 !important;
+    box-shadow: 0 0 0 0.2rem rgba(000,000,000,0.25) !important;
 }
