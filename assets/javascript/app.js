@@ -85,7 +85,7 @@ $(document).ready(function() {
         trainFrequency = parseInt($("#departure-frequency").val().trim());
         var first2Time = firstTrainTime.substring(0, 2);
         var second2Time = firstTrainTime.substring(2, 4);
-        console.log(first2Time);
+        //console.log(first2Time);
         //console.log(second2Time);
 
         // make sure a number 0-2359 is added. not 2299 or 2510 but a valid military time
