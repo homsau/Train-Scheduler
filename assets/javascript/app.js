@@ -6,7 +6,7 @@ $(document).ready(function() {
         authDomain: "train-schedule-12ae8.firebaseapp.com",
         databaseURL: "https://train-schedule-12ae8.firebaseio.com",
         projectId: "train-schedule-12ae8",
-        storageBucket: "train-schedule-12ae8.appspot.com",
+        storageBucket: "",
         messagingSenderId: "938652251912"
     };
     firebase.initializeApp(config);
@@ -28,7 +28,6 @@ $(document).ready(function() {
     var nextTrainConverted = "";
     var tRemainder = "";
     var train = "";
-    var i;
 
     // limit the amount of numbers able to be typed in the time area
     $("input#first-train-time").on("keyup", function() {
@@ -59,9 +58,9 @@ $(document).ready(function() {
             nextTrain = moment().add(difference, "minutes");
             nextTrainConverted = moment(nextTrain).format("HH:mm");
 
-            console.log("first train time: " + firstTrainTime);
-            console.log("next train: " + nextTrainConverted);
-            console.log("minutes till next: " + difference);
+            //console.log("first train time: " + firstTrainTime);
+            //console.log("next train: " + nextTrainConverted);
+            //console.log("minutes till next: " + difference);
         
         // nextTrain
         // adding the info from the "td" elements to the table
@@ -87,7 +86,7 @@ $(document).ready(function() {
         var first2Time = firstTrainTime.substring(0, 2);
         var second2Time = firstTrainTime.substring(2, 4);
         console.log(first2Time);
-        console.log(second2Time);
+        //console.log(second2Time);
 
         // make sure a number 0-2359 is added. not 2299 or 2510 but a valid military time
         if (first2Time >= 0 && first2Time <= 23 && second2Time >= 0 && second2Time <= 59) {
